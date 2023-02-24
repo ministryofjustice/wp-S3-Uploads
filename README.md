@@ -4,31 +4,22 @@
 			<strong>S3 Uploads</strong><br />
 			Lightweight "drop-in" for storing WordPress uploads on Amazon S3 instead of the local filesystem.
 		</td>
-		<td align="right" width="20%">
-			<a href="https://shepherd.dev/github/humanmade/S3-Uploads/">
-				<img src="https://shepherd.dev/github/humanmade/S3-Uploads/coverage.svg" alt="Psalm coverage">
-			</a>
-			<a href="https://travis-ci.com/humanmade/S3-Uploads">
-				<img src="https://travis-ci.com/humanmade/S3-Uploads.svg?branch=master" alt="Build status">
-			</a>
-			<a href="http://codecov.io/github/humanmade/S3-Uploads?branch=master">
-				<img src="http://codecov.io/github/humanmade/S3-Uploads/coverage.svg?branch=master" alt="Coverage via codecov.io" />
-			</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			A <strong><a href="https://hmn.md/">Human Made</a></strong> project. Maintained by @joehoyle.
-		</td>
-		<td align="center">
-			<img src="https://hmn.md/content/themes/hmnmd/assets/images/hm-logo.svg" width="100" />
-		</td>
 	</tr>
 </table>
 
 S3 Uploads is a WordPress plugin to store uploads on S3. S3 Uploads aims to be a lightweight "drop-in" for storing uploads on Amazon S3 instead of the local filesystem.
 
 It's focused on providing a highly robust S3 interface with no "bells and whistles", WP-Admin UI or much otherwise. It comes with some helpful WP-CLI commands for generating IAM users, listing files on S3 and Migrating your existing library to S3.
+
+## Fork Info
+
+We have forked this plugin for the following reasons. 
+
+1. The plugin relies on the AWS SDK which when loaded via composer this installs it to the vendor folder to the root of the site rather then where the plugin looks for it inside the plugin. So we have packaged the vendor folder with the plugin.
+
+2. The plugin does not by default load the class-s3-uploads-wp-cli-command.php class which it relies on causing an error so we have had to add a require_once to make sure this class is available.
+
+Hopefully these issues will be resolved in a future release of the orgiinal plugin.
 
 ## Requirements
 
